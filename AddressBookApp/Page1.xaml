@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="AddressBookApp.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AddressBookApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:model="using:AddressBookApp.Model"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Name ="TitleText" Grid.Row="0" FontSize="36" Text="All Address" />
+      <!--  <TextBlock Grid.Row="0" x:Name="greetingOutput" HorizontalAlignment="Right"/> -->
+        
+    <!--    <GridView Grid.Row="1" Name="AllAddressGridView" 
+                  SelectionMode="None">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="model:Contact">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Name="NameText" Text="{x:Bind Name}"></TextBlock>
+                        <TextBlock Name="PhoneText" Text="{x:Bind Phone}"/>
+                        <TextBlock Name="AddressText" Text="{x:Bind Address}"/>
+                    </StackPanel>
+                   
+                    
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            
+        </GridView> -->
+
+        <ListView Name="AllContactsListView" 
+                  SelectionMode="None"
+                  IsItemClickEnabled="True"
+                  ItemClick="AllContactsListView_ItemClick"
+                  Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Contact">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Name="NameText" Text="{x:Bind Name}"></TextBlock>
+                        <TextBlock Name="PhoneText" Text="{x:Bind Phone}"/>
+                        <TextBlock Name="AddressText" Text="{x:Bind Address}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </Grid>
+</Page>
